@@ -1,1 +1,1 @@
-# dynamic-nfts
+# Dynamic NFTs
