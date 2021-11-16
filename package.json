@@ -6,7 +6,7 @@
     "scripts": {
         "compile": "hardhat compile",
         "test": "hardhat test --verbose",
-        "dep": "hardhat --network testnet deploy",
+        "dep": "hardhat --network polytest deploy",
         "dep-main": "hardhat --network mainnet deploy",
         "testc": "clear & hardhat test",
         "generate": "ts-node ./metadata-generator/index.ts"

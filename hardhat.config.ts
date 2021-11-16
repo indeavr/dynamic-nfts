@@ -10,7 +10,6 @@ import "hardhat-gas-reporter";
 import 'hardhat-deploy';
 import "@nomiclabs/hardhat-ethers";
 import * as fs from "fs";
-import { config } from "hardhat";
 import { HttpNetworkConfig } from "hardhat/src/types/config";
 import { isAddress, getAddress, formatUnits, parseUnits } from "ethers/lib/utils";
 
@@ -32,7 +31,7 @@ const hardhatConfig: HardhatUserConfig = {
     defaultNetwork: "hardhat",
     networks: {
         mainnet: {
-            url: "https://bsc-dataseed.binance.org/",
+            url: envConfig.RPC_URL,
             chainId: 56,
             gasPrice: 5e9,
             accounts: [envConfig.PRIVATE_KEY],
@@ -65,15 +64,8 @@ const hardhatConfig: HardhatUserConfig = {
                 envConfig.PRIVATE_KEY,
             ]
         },
-        polygon: {
-            url: "https://speedy-nodes-nyc.moralis.io/XXXXXXXXXXXXXXXXXXXx/polygon/mainnet", // <---- YOUR MORALIS ID! (not limited to infura)
-            gasPrice: 1000000000,
-            accounts: [
-                envConfig.PRIVATE_KEY,
-            ]
-        },
         polytest: {
-            url: "https://speedy-nodes-nyc.moralis.io/XXXXXXXXXXXXXXXXXXXXXXX/polygon/mumbai", // <---- YOUR MORALIS ID! (not limited to infura)
+            url: envConfig.RPC_URL_TEST,
             gasPrice: 1000000000,
             accounts: [
                 envConfig.PRIVATE_KEY,
@@ -315,11 +307,11 @@ task(
         const qrcode = require("qrcode-terminal");
         qrcode.generate(address);
         console.log("‍📬 Deployer Account is " + address);
-        for (const n in config.networks) {
+        for (const n in hardhatConfig.networks) {
             // console.log(config.networks[n],n)
             try {
                 const provider = new ethers.providers.JsonRpcProvider(
-                    (config.networks[n] as HttpNetworkConfig).url
+                    (hardhatConfig.networks[n] as HttpNetworkConfig).url
                 );
                 const balance = await provider.getBalance(address);
                 console.log(" -- " + n + " --  -- -- 📡 ");
