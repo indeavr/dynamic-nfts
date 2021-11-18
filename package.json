@@ -9,7 +9,12 @@
         "dep": "hardhat --network polytest deploy",
         "dep-main": "hardhat --network mainnet deploy",
         "testc": "clear & hardhat test",
-        "generate": "ts-node ./metadata-generator/index.ts"
+        "generate": "ts-node ./metadata-generator/index.ts",
+        "flat": "./node_modules/.bin/truffle-flattener contracts/DyFactory.sol > contracts/flat/DyF.sol",
+        "verifyT": "truffle run verify DyNFTFactory@0xf30536ea9bcC6F98e6D66f52c7104522C234E2D0 --network test",
+        "tcompile": "truffle compile",
+        "deploy-test": "truffle migrate --network test",
+        "deploy-prod": "truffle migrate --network main"
     },
     "repository": {
         "type": "git"
@@ -28,6 +33,7 @@
         "lodash": "^4.17.20",
         "nft.storage": "^3.4.0",
         "node-schedule": "^2.0.0",
+        "truffle-flattener": "^1.5.0",
         "ws": "^7.4.4"
     },
     "devDependencies": {

@@ -1,3 +1,8 @@
+.idea
+/.idea
+artifacts
+cache
+typechain
 # Logs
 logs
 *.log

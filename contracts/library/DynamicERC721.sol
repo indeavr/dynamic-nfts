@@ -131,6 +131,9 @@ abstract contract DynamicERC721 is ERC721URIStorage, Ownable {
 
     function getUpgrades(uint tokenId) external view returns (string[] memory uris){
         UpgradeInfo[] memory info = upgrades[tokenId];
+        if (info.length == 0) {
+            return;
+        }
         uris = new string[](info.length);
 
         for (uint i = 0; i < info.length; i++) {
