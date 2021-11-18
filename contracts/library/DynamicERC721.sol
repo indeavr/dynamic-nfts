@@ -7,17 +7,15 @@ abstract contract DynamicERC721 is ERC721URIStorage, Ownable {
     uint256 public tokenCounter;
     string baseURI;
 
-    string public constant URI = "https://gateway.pinata.cloud/ipfs/";
-
     struct UpgradeInfo {
         string metadata;
+        bool available;
+        bool isSet;
     }
 
     // [NFT] -> info
     mapping(uint => UpgradeInfo[]) public upgrades;
-
     mapping(uint => address) public minters;
-
     // [id] -> tokenURI
     mapping(uint => string) public tokenURIs;
 
@@ -39,18 +37,18 @@ abstract contract DynamicERC721 is ERC721URIStorage, Ownable {
 
     }
 
-    modifier onlyMinter(address caller, uint tokenId){
-        require(minters[tokenId] == caller, "Only minter is authorized");
+    modifier onlyMinterAndOwner(address caller, uint tokenId){
+        require(minters[tokenId] == caller || owner() == caller, "Only minter & owner");
         _;
     }
 
-    function _safeDynamicMint(address account, string memory tokenURI) public {
+    function _safeDynamicMint(address account, string memory metadataUri) public {
         uint newTokenId = tokenCounter;
-        tokenCounter++;
-        setTokenURI(newTokenId, tokenURI);
-        minters[tokenCounter] = account;
+        setTokenURI(newTokenId, metadataUri);
+        minters[newTokenId] = account;
 
         super._safeMint(account, newTokenId);
+        tokenCounter++;
     }
 
     function readProperty() public {
@@ -75,11 +73,15 @@ abstract contract DynamicERC721 is ERC721URIStorage, Ownable {
     }
 
     // base function called only for metadata
-    function addUpgrade(uint tokenId, string calldata tokenUri)
+    function addUpgrade(uint tokenId, string memory metadataUri)
     public
-    onlyMinter(msg.sender, tokenId)
+    onlyMinterAndOwner(msg.sender, tokenId)
     {
-        UpgradeInfo memory upgradeInfo = UpgradeInfo(tokenUri);
+        _addUpgrade(tokenId, metadataUri);
+    }
+
+    function _addUpgrade(uint tokenId, string memory metadataUri) internal {
+        UpgradeInfo memory upgradeInfo = UpgradeInfo(metadataUri, true, false);
         upgrades[tokenId].push(upgradeInfo);
         // emit event
         bool autoAc = shouldAutoAccept();
@@ -109,14 +111,14 @@ abstract contract DynamicERC721 is ERC721URIStorage, Ownable {
     function tokenURI(uint256 tokenId) public view override returns (string memory) {
         require(_exists(tokenId), "URI query for nonexistent token");
         // store a mapping with each id and its uri !
-        return tokenURIs[tokenCounter];
+        return tokenURIs[tokenId];
     }
 
     function setTokenURI(
         uint256 tokenId,
-        string memory tokenURI
-    ) public {
-        tokenURIs[tokenCounter] = tokenURI;
+        string memory metadataUri
+    ) internal {
+        tokenURIs[tokenId] = metadataUri;
     }
 
     function setBaseURI(string memory baseURI_) external {
@@ -125,6 +127,17 @@ abstract contract DynamicERC721 is ERC721URIStorage, Ownable {
 
     function _baseURI() internal view override returns (string memory) {
         return baseURI;
+    }
+
+    function getUpgrades(uint tokenId) external view returns (string[] memory uris){
+        UpgradeInfo[] memory info = upgrades[tokenId];
+        uris = new string[](info.length);
+
+        for (uint i = 0; i < info.length; i++) {
+            uris[i] = info[i].metadata;
+        }
+
+        return uris;
     }
 
     // Deal with BNB
