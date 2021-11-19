@@ -16,7 +16,6 @@ const func: DeployFunction = async function(hre: HardhatRuntimeEnvironment) {
         getUnnamedAccounts,
     } = hre;
 
-    // return;
     const chainId = await getChainId();
     console.log("Chain ID", chainId);
     const { deployer } = await getNamedAccounts();
