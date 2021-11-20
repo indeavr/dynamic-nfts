@@ -1296,7 +1296,7 @@ abstract contract DynamicNFTFactory is DynamicERC721 {
 pragma solidity 0.8.10;
 
 
-contract DyFactory is DynamicNFTFactory {
+contract DyNFTFactory is DynamicNFTFactory {
     constructor () ERC721("DyFactory", "DyFactory") {
 
     }
