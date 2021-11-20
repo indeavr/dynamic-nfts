@@ -1,6 +1,6 @@
 pragma solidity 0.8.10;
 
-import "./library/DynamicERC721.sol";
+import "./lib/DynamicERC721.sol";
 
 contract AvatarNFTdy is DynamicERC721 {
     constructor () ERC721("DYERC721", "DynamicNft"){

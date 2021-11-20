@@ -1,6 +1,6 @@
 pragma solidity 0.8.10;
 
-import "./library/DynamicNFTFactory.sol";
+import "./lib/DynamicNFTFactory.sol";
 
 contract DyFactory is DynamicNFTFactory {
     constructor () ERC721("DyFactory", "DyFactory") {

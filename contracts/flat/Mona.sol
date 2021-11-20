@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 // File: node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol
 
-
 pragma solidity ^0.8.0;
 
 /**
@@ -26,7 +25,6 @@ interface IERC165 {
 }
 
 // File: node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol
-
 
 pragma solidity ^0.8.0;
 
@@ -170,7 +168,6 @@ interface IERC721 is IERC165 {
 
 // File: node_modules\@openzeppelin\contracts\token\ERC721\IERC721Receiver.sol
 
-
 pragma solidity ^0.8.0;
 
 /**
@@ -198,7 +195,6 @@ interface IERC721Receiver {
 
 // File: node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Metadata.sol
 
-
 pragma solidity ^0.8.0;
 
 
@@ -224,7 +220,6 @@ interface IERC721Metadata is IERC721 {
 }
 
 // File: node_modules\@openzeppelin\contracts\utils\Address.sol
-
 
 pragma solidity ^0.8.0;
 
@@ -443,7 +438,6 @@ library Address {
 
 // File: node_modules\@openzeppelin\contracts\utils\Context.sol
 
-
 pragma solidity ^0.8.0;
 
 /**
@@ -467,7 +461,6 @@ abstract contract Context {
 }
 
 // File: node_modules\@openzeppelin\contracts\utils\Strings.sol
-
 
 pragma solidity ^0.8.0;
 
@@ -536,7 +529,6 @@ library Strings {
 
 // File: node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol
 
-
 pragma solidity ^0.8.0;
 
 
@@ -564,7 +556,6 @@ abstract contract ERC165 is IERC165 {
 }
 
 // File: node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol
-
 
 pragma solidity ^0.8.0;
 
@@ -977,7 +968,6 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
 
 // File: @openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol
 
-
 pragma solidity ^0.8.0;
 
 
@@ -1043,7 +1033,6 @@ abstract contract ERC721URIStorage is ERC721 {
 }
 
 // File: @openzeppelin\contracts\access\Ownable.sol
-
 
 pragma solidity ^0.8.0;
 
@@ -1268,41 +1257,16 @@ abstract contract DynamicERC721 is ERC721URIStorage, Ownable {
     receive() external payable {}
 }
 
-// File: contracts\lib\DynamicNFTFactory.sol
+// File: contracts\MonaUpgradesNFT.sol
 
 pragma solidity 0.8.10;
 
 
-abstract contract DynamicNFTFactory is DynamicERC721 {
-    constructor () {
-    }
-
-    function canMint(address sender) public virtual returns (bool){
-        return sender == this.owner();
+contract MonaUpgrades is DynamicERC721 {
+    constructor () ERC721("MonaUpgradesNFT", "MonaUpgradesNFTCollectiongyhb"){
     }
 
     function mint(string memory metadataUri) public virtual {
-        require(canMint(msg.sender), "Cant Mint !");
         super._safeDynamicMint(msg.sender, metadataUri);
     }
-
-    function mintTo(string memory metadataUri, address to) public virtual{
-        super._safeDynamicMint(to, metadataUri);
-    }
-}
-
-// File: contracts\DyFactory.sol
-
-pragma solidity 0.8.10;
-
-
-contract DyFactory is DynamicNFTFactory {
-    constructor () ERC721("DyFactory", "DyFactory") {
-
-    }
-
-    function canMint(address sender) public override returns (bool){
-        return true;
-    }
-
 }

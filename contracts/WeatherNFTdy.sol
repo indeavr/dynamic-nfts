@@ -4,7 +4,7 @@
 //
 //import "./interfaces/IWeatherFeed.sol";
 //import "@chainlink/contracts/src/v0.6/ChainlinkClient.sol";
-//import "./library/DynamicERC721.sol";
+//import "./lib/DynamicERC721.sol";
 //
 //contract WeatherNFTdy is DynamicERC721, ChainlinkClient {
 //    using Strings for string;
