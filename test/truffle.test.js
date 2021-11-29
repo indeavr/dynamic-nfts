@@ -23,6 +23,7 @@ contract("DyFactory", async accounts => {
         const Contract = await DyFactory.deployed();
 
         await Contract.mintTo.call("test", "0x0000000000000000000000000000000000000001");
+        
         const bal = await Contract.balanceOf.call("0x0000000000000000000000000000000000000001");
 
         assert.equal(bal.valueOf(), 1);
