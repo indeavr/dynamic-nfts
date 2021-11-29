@@ -22,7 +22,7 @@ const verify = async () => {
         {
             address: "", name: "", ctor: [],
             file: readFileSync(__dirname + '../contracts/', "utf-8")
-        }, // div
+        },
     ]
 
     await new Promise(resolve => setTimeout(resolve, 2000));

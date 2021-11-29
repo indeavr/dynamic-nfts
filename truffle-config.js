@@ -1,7 +1,5 @@
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-const envConfig = require("./envConfig");
-
-const mnemonic = envConfig.PRIVATE_KEY;
+const pkey = process.env.PRIVATE_KEY;
 
 module.exports = {
     plugins: [
@@ -16,11 +14,11 @@ module.exports = {
             network_id: "*",
         },
         test: {
-            provider: () => new HDWalletProvider(mnemonic, envConfig.RPC_URL_TEST),
-            network_id: 80001,
-            confirmations: 10,
-            timeoutBlocks: 200,
-            skipDryRun: true
+            provider: () => new HDWalletProvider(pkey, process.env.RINKEBY_RPC),
+            network_id: 4,
+            // confirmations: 10,
+            // timeoutBlocks: 200,
+            // skipDryRun: true
         },
         // main: {
         //     provider: () => new HDWalletProvider(mnemonic, envConfig.RPC_URL_TEST),

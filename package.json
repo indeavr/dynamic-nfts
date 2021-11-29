@@ -5,7 +5,7 @@
     "main": "index.ts",
     "scripts": {
         "compile": "hardhat compile",
-        "test": "hardhat test --verbose",
+        "test": "truffle test ./test/truffle.test.js",
         "dep": "hardhat --network polytest deploy",
         "dep-main": "hardhat --network mainnet deploy",
         "testc": "clear & hardhat test",
@@ -25,6 +25,7 @@
         "@ethersproject/providers": "^5.0.17",
         "@flashbots/ethers-provider-bundle": "^0.2.1",
         "@openzeppelin/contracts": "^4.1.0",
+        "@truffle/hdwallet-provider": "^1.7.0",
         "@types/decimal.js": "^7.4.0",
         "abi-decoder": "^2.4.0",
         "bignumber.js": "^9.0.1",
@@ -33,6 +34,7 @@
         "lodash": "^4.17.20",
         "nft.storage": "^3.4.0",
         "node-schedule": "^2.0.0",
+        "truffle": "^5.4.22",
         "truffle-flattener": "^1.5.0",
         "ws": "^7.4.4"
     },

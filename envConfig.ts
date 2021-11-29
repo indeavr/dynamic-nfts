@@ -8,6 +8,7 @@ const envConfig = {
     PRIVATE_KEY: process.env.PRIVATE_KEY,
     NFT_STORAGE_KEY: process.env.NFT_STORAGE_KEY,
     POLYSCAN_KEY: process.env.POLYSCAN_KEY,
+    RINKEBY_RPC: process.env.RINKEBY_RPC,
 }
 
 export default envConfig;

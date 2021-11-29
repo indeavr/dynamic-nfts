@@ -26,10 +26,10 @@ const func: DeployFunction = async function(hre: HardhatRuntimeEnvironment) {
     // await DynamicNft.deployed();
     // console.log("<<DynamicNft address>>", DynamicNft.address);
 
-    // const DyNftFactoryFactory = await ethers.getContractFactory("DyNFTFactory");
-    // DyFactory = await DyNftFactoryFactory.deploy();
-    // await DyFactory.deployed();
-    // console.log("<<DyFactory address>>", DyFactory.address);
+    const DyNftFactoryFactory = await ethers.getContractFactory("DyNFTFactory");
+    DyFactory = await DyNftFactoryFactory.deploy();
+    await DyFactory.deployed();
+    console.log("<<DyFactory address>>", DyFactory.address);
 
     const MonaUpgradesFactory = await ethers.getContractFactory("MonaUpgrades");
     MonaUpgrades = await MonaUpgradesFactory.deploy();

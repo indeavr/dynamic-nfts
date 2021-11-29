@@ -13,10 +13,10 @@ abstract contract DynamicERC721 is ERC721URIStorage, Ownable {
         bool isSet;
     }
 
-    // [NFT] -> info
+    /// [NFT] -> info
     mapping(uint => UpgradeInfo[]) public upgrades;
     mapping(uint => address) public minters;
-    // [id] -> tokenURI
+    /// [id] -> tokenURI
     mapping(uint => string) public tokenURIs;
 
     constructor () {
@@ -28,7 +28,7 @@ abstract contract DynamicERC721 is ERC721URIStorage, Ownable {
         _;
     }
 
-    /*
+    /**
         This collection is part of the spec and it's required for the generation script to work.
     */
     mapping(uint => bytes) properties;
@@ -57,12 +57,12 @@ abstract contract DynamicERC721 is ERC721URIStorage, Ownable {
 
     }
 
-    /* where does the converstion between bytes & actual type happen ? */
+    /// where does the converstion between bytes & actual type happen ?
     function getProperties() public{
 
     }
 
-    // hmm maybe add "functions to execute" inside the upgrade object / struct ?
+    /// hmm maybe add "functions to execute" inside the upgrade object / struct ?
     function upgrade(uint id, uint updateIndex) public onlyMine(id) {
         _upgrade(id, updateIndex);
     }
@@ -74,7 +74,7 @@ abstract contract DynamicERC721 is ERC721URIStorage, Ownable {
         // emit event
     }
 
-    // base function called only for metadata
+    /// base function called only for metadata
     function addUpgrade(uint tokenId, string memory metadataUri)
     public
     onlyMinterAndOwner(msg.sender, tokenId)
@@ -95,14 +95,14 @@ abstract contract DynamicERC721 is ERC721URIStorage, Ownable {
 
     bool autoAcceptUpgrades = false;
 
-    /*
+    /**
         Can be overridden to always return true/false
     */
     function shouldAutoAccept() public returns (bool){
         return autoAcceptUpgrades;
     }
 
-    /*
+    /**
         Can be overridden to be disabled
     */
     function toggleAutoAccept(bool newVal) public {
@@ -145,7 +145,7 @@ abstract contract DynamicERC721 is ERC721URIStorage, Ownable {
         return uris;
     }
 
-    // Deal with BNB
+    /// Deal with ETH
     fallback() external payable {}
 
     receive() external payable {}
