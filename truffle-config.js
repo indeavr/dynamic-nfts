@@ -1,5 +1,5 @@
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-const pkey = process.env.PRIVATE_KEY;
+const pkey = process.env.MNEMONIC;
 
 module.exports = {
     plugins: [

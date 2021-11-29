@@ -9,6 +9,7 @@ const envConfig = {
     NFT_STORAGE_KEY: process.env.NFT_STORAGE_KEY,
     POLYSCAN_KEY: process.env.POLYSCAN_KEY,
     RINKEBY_RPC: process.env.RINKEBY_RPC,
+    MNEMONIC: process.env.MNEMONIC,
 }
 
 export default envConfig;

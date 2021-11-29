@@ -14,6 +14,7 @@
         "verifyT": "truffle run verify DyNFTFactory@0xf30536ea9bcC6F98e6D66f52c7104522C234E2D0 --network test",
         "tcompile": "truffle compile",
         "deploy-test": "truffle migrate --network test",
+        "deploy-dev": "truffle migrate --network development",
         "deploy-prod": "truffle migrate --network main"
     },
     "repository": {

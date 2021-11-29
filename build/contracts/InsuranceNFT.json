@@ -1,0 +1,187 @@
+{
+  "contractName": "InsuranceNFT",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/InsuranceNFTdy.sol\":\"InsuranceNFT\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/InsuranceNFTdy.sol\":{\"keccak256\":\"0x62af6ceedd7d2b605b2d3f2581af0ecd9f72eedbf50daba3487944ffc3124db4\",\"urls\":[\"bzz-raw://999b91405a95947aa9204b8adb55415f91578164b0a0bd3e4fc56fe96d08e638\",\"dweb:/ipfs/QmbuitDi3mwP1y3mf8Egzqd6j1KSaBdfSB215NfGB1ap9R\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220517b21cb8398472245b5d9d2a4d162766583c0ace5cc5743ae477866d6d0c4c764736f6c634300080a0033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220517b21cb8398472245b5d9d2a4d162766583c0ace5cc5743ae477866d6d0c4c764736f6c634300080a0033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "27:57:14:-:0;;;56:23;;;;;;;;;;27:57;;;;;;",
+  "deployedSourceMap": "27:57:14:-:0;;;;;",
+  "source": "pragma solidity 0.8.10;\r\n\r\ncontract InsuranceNFT {\r\n    constructor () {\r\n    }\r\n\r\n}\r\n",
+  "sourcePath": "C:\\Projects\\Crypto\\Projects\\dynamic-nfts\\contracts\\InsuranceNFTdy.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/InsuranceNFTdy.sol",
+    "exportedSymbols": {
+      "InsuranceNFT": [
+        1859
+      ]
+    },
+    "id": 1860,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1854,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:14"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "InsuranceNFT",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 1859,
+        "linearizedBaseContracts": [
+          1859
+        ],
+        "name": "InsuranceNFT",
+        "nameLocation": "36:12:14",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 1857,
+              "nodeType": "Block",
+              "src": "71:8:14",
+              "statements": []
+            },
+            "id": 1858,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1855,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "68:2:14"
+            },
+            "returnParameters": {
+              "id": 1856,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "71:0:14"
+            },
+            "scope": 1859,
+            "src": "56:23:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 1860,
+        "src": "27:57:14",
+        "usedErrors": []
+      }
+    ],
+    "src": "0:86:14"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/InsuranceNFTdy.sol",
+    "exportedSymbols": {
+      "InsuranceNFT": [
+        1859
+      ]
+    },
+    "id": 1860,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1854,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:14"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "InsuranceNFT",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 1859,
+        "linearizedBaseContracts": [
+          1859
+        ],
+        "name": "InsuranceNFT",
+        "nameLocation": "36:12:14",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 1857,
+              "nodeType": "Block",
+              "src": "71:8:14",
+              "statements": []
+            },
+            "id": 1858,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1855,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "68:2:14"
+            },
+            "returnParameters": {
+              "id": 1856,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "71:0:14"
+            },
+            "scope": 1859,
+            "src": "56:23:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 1860,
+        "src": "27:57:14",
+        "usedErrors": []
+      }
+    ],
+    "src": "0:86:14"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.10+commit.fc410830.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-11-29T13:24:17.676Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
